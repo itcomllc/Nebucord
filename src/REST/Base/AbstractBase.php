@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Nebucord - A Discord Websocket and REST API
@@ -33,19 +34,20 @@ use Nebucord\Base\StatusList;
  *
  * @package Nebucord\REST\Base
  */
-abstract class AbstractBase {
+abstract class AbstractBase
+{
 
     /** @const string[] SENDREQUEST_TYPES The possible request types. */
     const SENDREQUEST_TYPES = array('GET', 'POST', 'PUT', 'PATCH', 'DELETE');
 
     /** @var string $_apiurl The Discord REST API host url with protocol. */
-    protected $_apiurl = "ssl://discordapp.com";
+    protected $_apiurl = "ssl://discord.com";
 
     /** @var string $_apiver The used Discord REST API version. */
-    protected $_apiver = "9";
+    protected $_apiver = "10";
 
     /** @var string $_apiurl The Discord REST API host. */
-    protected $_discordhost = "discordapp.com";
+    protected $_discordhost = "discord.com";
 
     /** @var string $_httpproto The transfer protocol with version. */
     protected $_httpproto = "HTTP/1.1";
@@ -82,7 +84,8 @@ abstract class AbstractBase {
      *
      * Sets up the base data and clears all arrays for usage.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->getClassRessources();
     }
 
@@ -91,7 +94,8 @@ abstract class AbstractBase {
      *
      * Cleans up properties wich are not used any more on exit.
      */
-    public function __destruct() {
+    public function __destruct()
+    {
         $this->getClassRessources();
     }
 
@@ -114,13 +118,14 @@ abstract class AbstractBase {
      *
      * Prepares the base http header for sending.
      */
-    public function setupBaseHeader() {
-    	$this->_header = array(
+    public function setupBaseHeader()
+    {
+        $this->_header = array(
             "Endpoint" => null,
             "Headerparams" => array(
                 "Host:" => $this->_discordhost,
-                "User-Agent:" => StatusList::CLIENTBROWSER." (".StatusList::CLIENTHOST.", ".StatusList::VERSION.")",
-                "Authorization:" => "Bot ".$this->_params['token'],
+                "User-Agent:" => StatusList::CLIENTBROWSER . " (" . StatusList::CLIENTHOST . ", " . StatusList::VERSION . ")",
+                "Authorization:" => "Bot " . $this->_params['token'],
                 "Connection:" => "close"
             ),
             "Payload" => null
