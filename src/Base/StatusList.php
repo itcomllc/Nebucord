@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Nebucord - A Discord Websocket and REST API
@@ -34,7 +35,8 @@ namespace Nebucord\Base;
  *
  * @package Nebucord\Base
  */
-abstract class StatusList {
+abstract class StatusList
+{
     const OP_DISPATCH = 0;
     const OP_HEARTBEAT = 1;
     const OP_IDENTIFY = 2;
@@ -112,7 +114,7 @@ abstract class StatusList {
     const GWEVT_STAGE_INSTANCE_CREATE = 'STAGE_INSTANCE_CREATE';
     const GWEVT_STAGE_INSTANCE_DELETE = 'STAGE_INSTANCE_DELETE';
     const GWEVT_STGE_INSTANCE_UPDATE = 'STAGE_INSTANCE_UPDATE';
-    const GWEVT_TYPING_START = 'TYPEING_START';
+    const GWEVT_TYPING_START = 'TYPING_START';
     const GWEVT_USER_UPDATE = 'USER_UPDATE';
     const GWEVT_VOICE_STATE_UPDATE = 'VOICE_STATE_UPDATE';
     const GWEVT_VOICE_SERVER_UPDATE = 'VOICE_SERVER_UPDATE';
@@ -459,17 +461,17 @@ abstract class StatusList {
     const APPLICATION_FLAGS_EMBEDDED = 1 << 17;
     const APPLICATION_FLAGS_GW_MESSAGE_CONTENT = 1 << 18;
     const APPLICATION_FLAGS_GW_MESSAGE_CONTENT_LIMITED = 1 << 19;
-    
+
     const AUTO_MODERATION_TRIGGER_TYPE_KEYWORD = 1;
     const AUTO_MODERATION_TRIGGER_TYPE_SPAM = 2;
     const AUTO_MODERATION_TRIGGER_TYPE_KEYWORD_PRESET = 3;
     const AUTO_MODERATION_TRIGGER_TYPE_MENTION_SPAN = 4;
-    
+
     const GUILD_SCHEDULED_EVENT_PRIVACY_LEVEL_GUILD_ONLY = 2;
     const GUILD_SCHEDULED_EVENT_ENTITY_TYPE_STAGE_INSTANCE = 1;
     const GUILD_SCHEDULED_EVENT_ENTITY_TYPE_VOICE = 2;
     const GUILD_SCHEDULED_EVENT_ENTITY_TYPE_EXTERNAL = 3;
-    
+
     const GUILD_SCHEDULED_EVENT_STATUS_SCHEDULED = 1;
     const GUILD_SCHEDULED_EVENT_STATUS_ACTIVE = 2;
     const GUILD_SCHEDULED_EVENT_STATUS_COMPLETED = 3;
@@ -547,7 +549,8 @@ abstract class StatusList {
      *
      * @return string The operating system wich this is running on.
      */
-    public static function getOS() {
+    public static function getOS()
+    {
         return php_uname('s');
     }
 
@@ -559,7 +562,8 @@ abstract class StatusList {
      *
      * @return string Client browser identification.
      */
-    public static function getBrowser() {
+    public static function getBrowser()
+    {
         return self::CLIENTBROWSER;
     }
 
@@ -571,7 +575,8 @@ abstract class StatusList {
      *
      * @return string Device (software) on wich Nebucord is running.
      */
-    public static function getDevice() {
-        return "NebucordWS API / PHP".phpversion();
+    public static function getDevice()
+    {
+        return "NebucordWS API / PHP" . phpversion();
     }
 }
