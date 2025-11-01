@@ -540,7 +540,7 @@ abstract class StatusList
 
     const CLIENTBROWSER = 'NebucordWS API';
     const CLIENTHOST = 'nebucordws.nebulatien.org';
-    const VERSION = '1.1';
+    const VERSION = '1.2.2';
 
     /**
      * Returns the OS.
